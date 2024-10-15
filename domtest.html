@@ -65,11 +65,12 @@ function myFunction() {
 
 
     //3rd question
-    const boxes=document.getElementById("showBoxCount");
-    boxes.addEventListener("click",function(){
-      const count=find(box-style.length);
-      alert("box count"+count)
+    document.getElementById("showBoxCount").addEventListener("click",function(){
+      const boxes=document.querySelectorAll(".box-style");
+      const boxcount=boxes.length;
+      alert("Box count is: "+boxcount);
     })
+    
     
     
 
