@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation Test</title>
+  <style>
+    .box-style {
+      width: 200px;
+      height: 150px;
+      background-color: black;
+      margin: 20px ;
+      color: white;
+    }
+    h1{
+      color: blue;
+    }
+    button{
+      background-color: burlywood;
+      
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1 id="header" >DOM Manipulation </h1>
+    <button onclick="myFunction()">Header</button>
+    <button id="addBox">Add Box</button>
+    <button id="removeBox">Remove Box</button>
+    <button id="showBoxCount">Show Box Count</button>
+    <button id="create">Create a</button>
+    
+  </div>
+  <script>
+
+    //1st question
+    const header=document.getElementById("header").textContent;
+function myFunction() {
+    alert(header);
+  };
+
+  //2nd question
+    const container = document.querySelector(".container");
+
+    
+    const addBoxButton = document.getElementById("addBox");
+    addBoxButton.addEventListener("click", function() {
+      const newBox = document.createElement("div");
+      newBox.textContent = "New Box";
+      newBox.classList.add("box-style");
+      container.appendChild(newBox);
+    });
+
+    
+    const removeBoxButton = document.getElementById("removeBox");
+    removeBoxButton.addEventListener("click", function() {
+      const lastBox = document.querySelector(".box-style:last-child");
+      if (lastBox) {
+        container.removeChild(lastBox);
+      } else {
+        alert("Box illa");
+      }
+    });
+
+
+    //3rd question
+    const boxes=document.getElementById("showBoxCount");
+    boxes.addEventListener("click",function(){
+      const count=find(box-style.length);
+      alert("box count"+count)
+    })
+    
+    
+
+    // const boxcount=document.getElementById("showBoxCount");
+
+    // boxcount.addEventListener("click",function(){
+    //   alert(div)
+    // })
+
+    //4t question
+      const anchor=document.getElementById("create");
+      anchor.addEventListener("click",function(){
+
+        const link = document.createElement("a");
+    link.textContent = "freshworks";
+    link.setAttribute("href", "https://www.freshworks.com");
+      container.appendChild(link);
+      })
+  </script>
+    <!-- 1. Show alert of the text content of the h1 element using class -->
+  <!-- 2. Create a new div and append the child to the container, with the text content New Box-->
+  <!-- 3. Show the number of boxes in an alert -->
+  <!-- 4. Create an <a> element on button click , with text content "Hi There" and set href -->
+</body>
+</html>
