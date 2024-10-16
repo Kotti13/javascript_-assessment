@@ -66,18 +66,15 @@
             }     
 
     });
-    const remove=document.getElementById("removeButton");
-    remove.addEventListener("click",function(){
-        const nameToRemove = document.getElementById("name").value.trim();
-        const rows = document.querySelectorAll('#output tbody tr');
-        for (const row of rows) {
-            const nameCell = row.cells[0]; 
-            if (nameCell && nameCell.textContent === nameToRemove) {
-                row.remove(); 
-                return;
-            }
+    const remove = document.getElementById("removeButton");
+    remove.addEventListener("click", function() {
+        const tbody = document.querySelector('#output tbody');
+        const lastRow = tbody.lastElementChild; 
+        if (lastRow) {
+            tbody.removeChild(lastRow); 
+        } else {
+            alert('No batsman.');
         }
-        alert('Batsman not found.');
-    })
+    });
 </script>
 </html>
